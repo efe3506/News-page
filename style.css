@@ -93,6 +93,11 @@ p{
     color: #fff;
 }
 
+.bg-secondary{
+    background-color: var(--secondary-color) !important;
+    color: #fff;
+}
+
 .bg-light{
     background-color: var(--light-color);
     color: var(--dark-color);
@@ -145,6 +150,7 @@ p{
     font-size: 1rem;
     letter-spacing: 1px;
     padding-block-end: .6rem .8rem;
+    padding: .5rem;
     background-color: var(--secondary-color);
     border-radius: 15px;
     margin-bottom: .5rem;
@@ -208,7 +214,7 @@ p{
 
 #main-header::before{
     content: '';
-    background: url(rowing.jpeg) no-repeat center center/cover;
+    background: url(../img/rowing.jpeg) no-repeat center center/cover;
     position: absolute;
     top: 0;
     left: 0;
@@ -285,4 +291,89 @@ p{
 #main-footer .footer-container ul li a:hover{
     color: var(--primary-color);
     transition: .5s ease;
+}
+
+/* Article CSS */
+
+
+.page-container{
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    margin: 2.5rem 0;
+    gap: 1.5rem;
+}
+
+.page-container > *:first-child{
+    grid-row: 1 / span 3;
+}
+
+#article .meta{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #eee;
+}
+
+.page-container #categories ul li{
+    padding: .5rem 0;
+    border-bottom: 1px solid #555;
+    width: 90%;
+}
+
+
+.page-container #categories ul li a:hover{
+    color: var(--primary-color);
+    transition: .3s;
+}
+
+/* responsiveness */
+
+@media screen and (max-width: 768px) {
+    
+    #main-nav .social-icons{
+        display: none;
+    }
+
+    #main-nav .container{
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    #main-nav img{
+        width: 9rem;
+    }
+
+    #main-nav img,
+    #main-nav ul{
+        justify-self: center;
+    }
+
+    #main-articles .articles-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px){
+    #main-header .header-container{
+        grid-template-columns: 1fr;
+    }
+
+    #main-articles .articles-container,
+    #main-footer .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    #main-footer .footer-container > *:last-child{
+        grid-column: 1;
+    }
+
+    #main-footer .footer-container > *{
+        border-bottom: 1px dotted #444;
+        padding-bottom: 1rem;
+    }
+
+    .page-container{
+        grid-template-columns: 1fr;
+    }
 }
